@@ -1,0 +1,21 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.modal {
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    translate: -50% ;
+    width: 20rem;
+    background-color: #e1e1e1;
+    z-index: 2;
+    border-radius: 12px;
+    padding: 1rem;
+}
