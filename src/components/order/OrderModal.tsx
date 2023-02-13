@@ -1,16 +1,17 @@
 import { useState } from "react";
 import Modal from "../ui/Modal";
+import OrderCard from "./OrderCard";
 
-const CheckoutModal = () => {
-  const [displayModal, setDisplayModal] = useState(false);
+const OrderModal = () => {
+  const [displayModal, setDisplayModal] = useState(true);
   const onDismiss = () => {
     setDisplayModal(false);
   };
   return (
     <Modal display={displayModal} onDismiss={onDismiss}>
-      <div></div>
+      <OrderCard />
     </Modal>
   );
 };
 
-export default CheckoutModal;
+export default OrderModal;
