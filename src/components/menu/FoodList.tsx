@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useFetch from "../../hooks/use-fetch";
 import ProgressIndicator from "../ui/ProgressIndicator";
+import FoodItem from "./FoodItem";
 import classes from "./FoodList.module.css";
 
 const DUMMY_OBJECT = {
@@ -39,7 +40,8 @@ const FoodList: React.FC = () => {
     getFoodItems();
   }, []);
   const listContent = Object.keys(foodItems).map((item) => (
-    <li key={item}>{foodItems[item].name}</li>
+    <FoodItem key={item} name={foodItems[item].name} description={foodItems[item].description} price={foodItems[item].price}/>
+    // <li key={item}>{foodItems[item].name}</li>
   ));
   console.log(foodItems);
   return (

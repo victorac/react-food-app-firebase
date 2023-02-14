@@ -1,0 +1,26 @@
+.formLabel {
+  grid-area: label;
+  /* justify-self: end; */
+}
+
+.formInput {
+  grid-area: input;
+  width: 40px;
+}
+
+.formAction {
+  grid-area: action;
+}
+
+.itemForm {
+  display: grid;
+  grid-template-columns: 50px 50px 50px;
+  grid-template-rows: 50px 50px;
+  grid-template-areas:
+    "label label input"
+    ". action action";
+  align-items: flex-end;
+  column-gap: 0.5rem;
+  row-gap: 0;
+  place-items: center end;
+}
