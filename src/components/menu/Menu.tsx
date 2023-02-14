@@ -1,4 +1,5 @@
 import Card from "../ui/Card";
+import FoodList from "./FoodList";
 import classes from "./Menu.module.css";
 import MenuHeader from "./MenuHeader";
 
@@ -11,6 +12,7 @@ const Menu = () => {
         <main>
           <Card className={classes.menuCard}>
             <span>Menu</span>
+            <FoodList />
           </Card>
         </main>
       </div>
