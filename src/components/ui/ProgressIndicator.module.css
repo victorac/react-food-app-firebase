@@ -1,0 +1,25 @@
+.indicator {
+    display: flex;
+    place-items: center;
+    gap: 0.75rem;
+    margin: 0.5rem;
+}
+
+.progress {
+    display: inline;
+    height: 10px;
+    width: 25px;
+    border-radius: 10px;
+    background: linear-gradient(90deg,#e66465 30%, #9198e5 70%);
+    animation: 2s infinite circular;
+}
+
+@keyframes circular {
+    from {
+        rotate: 0;
+    }
+  
+    to {
+        rotate: 360deg;
+    }
+  }
