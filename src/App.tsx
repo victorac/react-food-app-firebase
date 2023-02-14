@@ -1,12 +1,11 @@
-import { useState } from "react";
-import OrderCard from "./components/order/OrderCard";
+import Menu from "./components/menu/Menu";
 import OrderModal from "./components/order/OrderModal";
-import Modal from "./components/ui/Modal";
 
 function App() {
   return (
     <>
       <OrderModal />
+      <Menu />
     </>
   );
 }
