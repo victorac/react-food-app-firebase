@@ -14,8 +14,5 @@
     left: 50%;
     translate: -50% ;
     width: 20rem;
-    background-color: #e1e1e1;
     z-index: 2;
-    border-radius: 12px;
-    padding: 1rem;
 }
