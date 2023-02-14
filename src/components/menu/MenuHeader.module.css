@@ -1,12 +1,54 @@
 .header {
-    position: fixed;
-    width: 100%;
-    background-color: beige;
-    color: black;
-    padding: 0.5rem 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: beige;
+  color: #242424;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.header span {
-    font-weight: bold;
+.header .title {
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.cardButton {
+    display: flex;
+    flex-direction: row;
+    place-items: center;
+    border: 2px solid black;
     font-size: larger;
+    font-weight: bold;
+    gap: 0.5rem;
+    margin-left: 1rem;
+    padding: 0.6em 0.8em;
+}
+
+.cardButton span {
+    display: none;
+}
+
+@media (min-width: 678px) {
+    .cardButton span {
+        display: inline;
+    }
+    .cartIcon {
+        display: none;
+    }
+}
+
+.badge {
+    display: flex;
+    place-items: center;
+    place-content: center;
+    border: 2px solid black;
+    border-radius: 12px;
+    background-color: beige;
+    width: 40px;
+    height: 32px;
+    text-align: center;
 }
