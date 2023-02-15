@@ -5,27 +5,27 @@ import FoodItem from "./FoodItem";
 import classes from "./FoodList.module.css";
 
 const DUMMY_OBJECT = {
-    "m1": {
-        "description": "Finest fish and veggies",
-        "name": "Sushi",
-        "price": 22.99
-    },
-    "m2": {
-        "description": "A german specialty!",
-        "name": "Schnitzel",
-        "price": 16.5
-    },
-    "m3": {
-        "description": "American, raw, meaty",
-        "name": "Barbecue Burger",
-        "price": 12.99
-    },
-    "m4": {
-        "description": "Healthy...and green...",
-        "name": "Green Bowl",
-        "price": 18.99
-    }
-}
+  m1: {
+    description: "Finest fish and veggies",
+    name: "Sushi",
+    price: 22.99,
+  },
+  m2: {
+    description: "A german specialty!",
+    name: "Schnitzel",
+    price: 16.5,
+  },
+  m3: {
+    description: "American, raw, meaty",
+    name: "Barbecue Burger",
+    price: 12.99,
+  },
+  m4: {
+    description: "Healthy...and green...",
+    name: "Green Bowl",
+    price: 18.99,
+  },
+};
 
 const FoodList: React.FC = () => {
   const [foodItems, setFoodItems] = useState<Record<string, any>>({});
@@ -33,17 +33,21 @@ const FoodList: React.FC = () => {
   const { isLoading, error, fetchData } = useFetch();
   useEffect(() => {
     const getFoodItems = async () => {
-    //   const data = await fetchData(`${URL}`, { method: "GET" });
-      const data = DUMMY_OBJECT
+      //   const data = await fetchData(`${URL}`, { method: "GET" });
+      const data = DUMMY_OBJECT;
       setFoodItems(data);
     };
     getFoodItems();
   }, []);
-  const listContent = Object.keys(foodItems).map((item) => (
-    <FoodItem key={item} name={foodItems[item].name} description={foodItems[item].description} price={foodItems[item].price}/>
-    // <li key={item}>{foodItems[item].name}</li>
+  const listContent = Object.keys(foodItems).map((id) => (
+    <FoodItem
+      key={id}
+      id={id}
+      name={foodItems[id].name}
+      description={foodItems[id].description}
+      price={foodItems[id].price}
+    />
   ));
-  console.log(foodItems);
   return (
     <>
       {isLoading ? (

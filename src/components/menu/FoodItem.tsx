@@ -3,22 +3,22 @@ import CartContext from "../../store/cart-context";
 import classes from "./FoodItem.module.css";
 import FoodItemForm from "./FoodItemForm";
 interface Props {
+  id: string;
   name: string;
   description: string;
   price: string;
 }
 
-const FoodItem: React.FC<Props> = ({ name, description, price }) => {
+const FoodItem: React.FC<Props> = ({ id, name, description, price }) => {
   const ref = useRef<HTMLInputElement>(null);
   const context = useContext(CartContext);
   const addHandler = () => {
-    const quantity = ref.current?.value;
-    if (quantity === undefined) {
+    const quantity = Number(ref.current?.value ?? 0);
+    if (quantity === 0) {
       return;
     }
-    // use context to add item
-    context.updateItem("m1", "Sushi", "9.99", 1);
-  }
+    context.updateItem(id, name, price, quantity);
+  };
   return (
     <li className={classes.foodItem}>
       <div className={classes.foodInfo}>
