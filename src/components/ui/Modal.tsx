@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ReactDOM from "react-dom";
 import classes from "./Modal.module.css";
 
@@ -14,7 +13,6 @@ const Modal: React.FC<Props> = ({ children, display = false, onDismiss }) => {
   const backdropClickHandler = () => {
     onDismiss();
   };
-  console.log(display);
   return (
     <>
       {display &&

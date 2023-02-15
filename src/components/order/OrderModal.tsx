@@ -3,12 +3,16 @@ import CartCard from "../cart/CartCard";
 import Modal from "../ui/Modal";
 import OrderCard from "./OrderCard";
 
-const OrderModal = () => {
-  const [displayModal, setDisplayModal] = useState(true);
+interface Props {
+  display: boolean;
+  onDismiss: VoidFunction;
+}
+
+const OrderModal: React.FC<Props> = ({ display, onDismiss }) => {
   const [checkout, setCheckout] = useState(false);
 
   const onDismissModal = () => {
-    setDisplayModal(false);
+    onDismiss();
   };
   const onOrder = () => {
     setCheckout(true);
@@ -21,7 +25,7 @@ const OrderModal = () => {
     <CartCard onCancel={onDismissModal} onOrder={onOrder} />
   );
   return (
-    <Modal display={displayModal} onDismiss={onDismissModal}>
+    <Modal display={display} onDismiss={onDismissModal}>
       {content}
     </Modal>
   );
