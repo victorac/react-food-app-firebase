@@ -5,7 +5,9 @@
 
 .formInput {
   grid-area: input;
-  width: 40px;
+  padding-left: 0.6rem;
+  width: 50px;
+  height: 40px;
 }
 
 .formAction {
@@ -14,13 +16,13 @@
 
 .itemForm {
   display: grid;
-  grid-template-columns: 50px 50px 50px;
-  grid-template-rows: 50px 50px;
+  grid-template-columns: 60px 60px 60px;
+  grid-template-rows: auto auto;
   grid-template-areas:
     "label label input"
     ". action action";
   align-items: flex-end;
   column-gap: 0.5rem;
-  row-gap: 0;
+  row-gap: 0.5rem;
   place-items: center end;
 }
