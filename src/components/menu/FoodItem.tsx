@@ -10,7 +10,7 @@ const FoodItem: React.FC<Props> = ({ name, description, price }) => {
   return (
     <li className={classes.foodItem}>
       <div className={classes.foodInfo}>
-        <span>{name}</span>
+        <span className={classes.title}>{name}</span>
         <span>{description}</span>
         <span>{price}</span>
       </div>

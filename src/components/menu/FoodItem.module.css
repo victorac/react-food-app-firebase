@@ -8,6 +8,10 @@
     border-bottom: 1px solid grey;
 }
 
+.title {
+    font-weight: bold;
+}
+
 .foodInfo {
     display: flex;
     flex-direction: column;

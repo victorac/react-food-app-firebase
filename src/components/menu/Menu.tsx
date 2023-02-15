@@ -11,7 +11,6 @@ const Menu = () => {
         <h1>Menu</h1>
         <main>
           <Card className={classes.menuCard}>
-            <span>Menu</span>
             <FoodList />
           </Card>
         </main>
