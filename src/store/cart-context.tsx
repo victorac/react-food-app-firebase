@@ -26,6 +26,17 @@ interface Props {
   children: React.ReactNode;
 }
 
+const copyCartItems = (items: CartItems) => {
+  const copiedItems: Record<string, CartItem> = {};
+  for (const key in items) {
+    if (Object.prototype.hasOwnProperty.call(items, key)) {
+      const item = items[key];
+      copiedItems[key] = { ...item };
+    }
+  }
+  return copiedItems;
+};
+
 export const CartProvider: React.FC<Props> = ({ children }) => {
   const [items, setItems] = useState<CartItems>({} as CartItems);
   const [totalCost, setTotalCost] = useState(0);
@@ -37,22 +48,22 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
   ) => {
     setTotalCost((prev) => Math.min(prev + quantity * Number(price), 0));
     setItems((prev) => {
-      const prevQuantity = prev[id]?.quantity ?? 0;
-      const updatedItem: CartItem = {
+      const auxItems = copyCartItems(prev);
+      const prevQuantity = auxItems[id]?.quantity ?? 0;
+      const newItem: CartItem = {
         id,
         name,
         price,
         quantity: prevQuantity + quantity,
       };
-      if (updatedItem.quantity <= 0) {
-        delete prev[id];
-        return { ...prev };
+      if (newItem.quantity <= 0) {
+        delete auxItems[id];
+      } else {
+        auxItems[id] = newItem;
       }
-      prev[id] = updatedItem;
-      return { ...prev };
+      return auxItems;
     });
   };
-  console.log(items);
   return (
     <CartContext.Provider value={{ items, updateItem, totalCost }}>
       {children}
