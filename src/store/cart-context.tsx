@@ -35,23 +35,21 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
     price: string,
     quantity: number
   ) => {
+    setTotalCost((prev) => Math.min(prev + quantity * Number(price), 0));
     setItems((prev) => {
       const prevQuantity = prev[id]?.quantity ?? 0;
-      console.log(prevQuantity);
       const updatedItem: CartItem = {
         id,
         name,
         price,
         quantity: prevQuantity + quantity,
       };
-      setTotalCost((prev) =>
-        Math.min(prev + updatedItem.quantity * Number(price), 0)
-      );
       if (updatedItem.quantity <= 0) {
         delete prev[id];
         return { ...prev };
       }
-      return { ...prev, id: updatedItem };
+      prev[id] = updatedItem;
+      return { ...prev };
     });
   };
   console.log(items);
