@@ -12,6 +12,9 @@ const OrderModal: React.FC<Props> = ({ display, onDismiss }) => {
   const [checkout, setCheckout] = useState(false);
 
   const onDismissModal = () => {
+    if (checkout) {
+      setCheckout(false);
+    }
     onDismiss();
   };
   const onOrder = () => {
