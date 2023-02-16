@@ -1,17 +1,23 @@
 .cartCard {
-    gap: 1rem;
+  gap: 1rem;
 }
 
 .title {
-    align-self: flex-start;
-    text-align: start;
-    font-weight: bold;
+  align-self: flex-start;
+  text-align: start;
+  font-weight: bold;
 }
 
 .action {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    gap: 0.5rem
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.itemList {
+  width: 100%;
+  padding-left: 0;
+  list-style: none;
 }
