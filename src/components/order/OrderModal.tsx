@@ -20,10 +20,9 @@ const OrderModal: React.FC<Props> = ({ display, onDismiss }) => {
   const onOrder = () => {
     setCheckout(true);
   };
-  const onConfirm = () => {};
 
   const content = checkout ? (
-    <OrderCard onCancel={onDismissModal} onConfirm={onConfirm} />
+    <OrderCard onCancel={onDismissModal} />
   ) : (
     <CartCard onCancel={onDismissModal} onOrder={onOrder} />
   );

@@ -2,16 +2,17 @@ import { useContext } from "react";
 import CartContext from "../../store/cart-context";
 import Card from "../ui/Card";
 import classes from "./OrderCard.module.css";
+import OrderForm from "./OrderForm";
 import OrderSummary from "./OrderSummary";
 
 interface Props {
-  onConfirm: VoidFunction;
   onCancel: VoidFunction;
 }
 
-const OrderCard: React.FC<Props> = ({ onConfirm, onCancel }) => {
-  const confirmHandler = () => {
-    onConfirm();
+const OrderCard: React.FC<Props> = ({ onCancel }) => {
+  const context = useContext(CartContext);
+  const confirmHandler = (name: string, address:string) => {
+    
   };
 
   const cancelHandler = () => {
@@ -22,9 +23,9 @@ const OrderCard: React.FC<Props> = ({ onConfirm, onCancel }) => {
     <Card className={classes.orderCard}>
       <span className={classes.title}>Your order</span>
       <OrderSummary />
+      <OrderForm onSubmit={confirmHandler} />
       <div className={classes.action}>
         <button onClick={cancelHandler}>Cancel</button>
-        <button onClick={confirmHandler}>Confirm</button>
       </div>
     </Card>
   );
