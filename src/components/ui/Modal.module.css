@@ -13,6 +13,13 @@
     top: 15%;
     left: 50%;
     translate: -50% ;
-    width: 20rem;
+    width: 85%;
+    margin: 0 auto;
     z-index: 2;
+}
+
+@media (min-width: 678px) {
+    .modal {
+        width: 30rem;
+    }
 }
