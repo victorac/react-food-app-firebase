@@ -25,9 +25,10 @@ const OrderForm: React.FC<Props> = ({ onSubmit }) => {
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
+    onBlurAddress();
+    onBlurName();
     if (!isNameValid || !isAddressValid) {
-        console.log("invalid")
+      console.log("invalid");
       return;
     }
 
@@ -36,7 +37,6 @@ const OrderForm: React.FC<Props> = ({ onSubmit }) => {
 
     onSubmit(name, address);
   };
-
   return (
     <form onSubmit={submitHandler}>
       <div>

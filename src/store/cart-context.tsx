@@ -11,7 +11,8 @@ interface Cart {
     price: string,
     quantity: number
   ) => void;
-  updateQuantity: (id: string, price:string, value: number) => void;
+  updateQuantity: (id: string, price: string, value: number) => void;
+  clear: () => void;
   totalCost: number;
 }
 
@@ -19,6 +20,7 @@ const initialValue = {
   items: {},
   updateItem: () => {},
   updateQuantity: () => {},
+  clear: () => {},
   totalCost: 0,
 };
 
@@ -42,7 +44,7 @@ const copyCartItems = (items: CartItems) => {
 export const CartProvider: React.FC<Props> = ({ children }) => {
   const [items, setItems] = useState<CartItems>({} as CartItems);
   const [totalCost, setTotalCost] = useState(0);
-  const updateQuantity = (id: string, price:string, value: number) => {
+  const updateQuantity = (id: string, price: string, value: number) => {
     setItems((prev) => {
       const auxItems = copyCartItems(prev);
       auxItems[id].quantity += value;
@@ -77,8 +79,13 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
       return auxItems;
     });
   };
+  const clear = () => {
+    setItems({});
+  };
   return (
-    <CartContext.Provider value={{ items, updateItem, updateQuantity, totalCost }}>
+    <CartContext.Provider
+      value={{ items, updateItem, updateQuantity, clear, totalCost }}
+    >
       {children}
     </CartContext.Provider>
   );

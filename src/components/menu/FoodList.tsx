@@ -29,12 +29,12 @@ const DUMMY_OBJECT = {
 
 const FoodList: React.FC = () => {
   const [foodItems, setFoodItems] = useState<Record<string, any>>({});
-  const URL = `${import.meta.env.VITE_API_URL}.json`;
+  const URL = `${import.meta.env.VITE_API_URL}meals.json`;
   const { isLoading, error, fetchData } = useFetch();
   useEffect(() => {
     const getFoodItems = async () => {
-      //   const data = await fetchData(`${URL}`, { method: "GET" });
-      const data = DUMMY_OBJECT;
+        const data = await fetchData(`${URL}`, { method: "GET" });
+      // const data = DUMMY_OBJECT;
       setFoodItems(data);
     };
     getFoodItems();
