@@ -39,6 +39,10 @@ const FoodList: React.FC = () => {
     };
     getFoodItems();
   }, []);
+
+  if(error !== null) {
+    return <p className={classes.errorMessage}>{error}</p>
+  }
   const listContent = Object.keys(foodItems).map((id) => (
     <FoodItem
       key={id}

@@ -10,10 +10,10 @@ type jsonResponse = Record<string, any> | null;
 
 const useFetch = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const fetchData = useCallback(async (url: string, payload: fetchPayload) => {
-    setError(false);
+    setError(null);
     setIsLoading(true);
     let data: jsonResponse = {};
     try {
@@ -24,7 +24,7 @@ const useFetch = () => {
       data = ((await response.json()) as jsonResponse) ?? [];
     } catch (error) {
       console.log((error as Error).message);
-      setError(true);
+      setError((error as Error).message);
     }
     setIsLoading(false);
     return data;
